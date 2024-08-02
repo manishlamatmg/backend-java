@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <meta name="x-apple-disable-message-reformatting" />
+   <!--[if !mso]><!-->
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <title>Password Reset Verification Code</title>
+      <style>
+         body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+         }
+         .container {
+            width: 60%;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+         }
+         h2 {
+            color: #333;
+            text-align: center;
+         }
+         p {
+            color: #555;
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 30px;
+         }
+         table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+         }
+         td {
+            padding: 10px;
+            text-align: center;
+         }
+         input[type="password"] {
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            margin: 5px;
+            border: 1px solid #ccc; /* Optional: Add border for a better visual */
+            font-size: 16px;
+         }
+
+         .footer {
+            margin-top: 30px;
+            text-align: center;
+            color: #888;
+            font-size: 14px;
+         }
+      </style>
+   </head>
+   <body>
+
+   <div class="container">
+      <h2>Password Reset Verification Code</h2>
+      <p>Oops, forgot your password? Enter the verification code sent to your email to reset it.</p>
+
+      <table>
+         <tr>
+            <td><input type="password" name="digit1" maxlength="1" th:value="${token != null ? token[0] : ''}" required></td>
+            <td><input type="password" name="digit2" maxlength="1" th:value="${token != null ? token[1] : ''}" required></td>
+            <td><input type="password" name="digit3" maxlength="1" th:value="${token != null ? token[2] : ''}" required></td>
+            <td><input type="password" name="digit4" maxlength="1" th:value="${token != null ? token[3] : ''}" required></td>
+         </tr>
+      </table>
+
+      <p>Your verification token: <strong th:text="${token}"></strong></p>
+
+      <div class="footer">
+         <p>If you didn't request a password reset, please ignore this email. This code will expire in 15 minutes.</p>
+      </div>
+   </div>
+
+   </body>
+</html>
+

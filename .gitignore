@@ -1,0 +1,8 @@
+# Ignore Gradle lock files
+.gradle/
+
+# Ignore Gradle fileHashes and buildOutputCleanup files
+.gradle/*/fileHashes/
+.gradle/*/buildOutputCleanup/
+build/
+
